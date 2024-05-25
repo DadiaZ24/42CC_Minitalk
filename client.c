@@ -34,6 +34,7 @@ int main(int argc, char **argv)
     int     i;
     char    *msg;
 
+    msg = NULL;
     msg = ft_minijoin(msg, 'D');
     printf("%s", msg);
     /*if (argc != 3)

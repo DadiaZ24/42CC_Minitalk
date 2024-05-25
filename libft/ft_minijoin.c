@@ -28,7 +28,7 @@ char	*ft_minijoin(char *str, char c)
 	if (!newstring)
 		return (0);
 	i = -1;
-	while ((++i < size) && str[i])
+	while (str[i])
 		newstring[i] = str[i];
 	newstring[++i] = c;
 	newstring[++i] = '\0';
