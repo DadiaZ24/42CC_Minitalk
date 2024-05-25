@@ -62,6 +62,7 @@ char	*ft_strjoin(char const *s1, char const *s2);
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char));
 char	*ft_strtrim(char const *s1, char const *set);
 char	*ft_substr(char const *s, unsigned int start, size_t len);
+char	*ft_minijoin(char *str, char c);
 
 size_t	ft_strlen(char const *str);
 size_t	ft_strlcat(char *dst, char *src, size_t n);

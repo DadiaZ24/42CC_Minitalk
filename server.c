@@ -31,17 +31,58 @@ void    receive_message(int bitsignal)
 {
     static int     bit;
     static unsigned char    c;
+    static char    *message;
+    static int		i;
 
+	if (!i)
+		i = 0;
+	if (!message)
+		message = NULL;
     if (bitsignal == SIGUSR1)
         c |= (1 << bit);
     bit += 1;
     if (bit == 8)
     {
-        ft_printf("%c", c);
+		if (c == '\n')
+		{
+			ft_printf("%s", message);
+			i = 0;
+		}
+		else
+			message = ft_minijoin(message, c);
         bit = 0;
         c = 0;
     }
 }
+
+/* void receive_message(int bitsignal)
+{
+    static int bit = 0;
+    static unsigned char c = 0;
+    static char message[1024]; // Adjust size as needed
+    static int message_index = 0;
+
+    if (bitsignal == SIGUSR1)
+        c |= (1 << bit);
+    
+    bit += 1;
+
+    if (bit == 8)
+    {
+        if (c == '\n') // Null character to indicate end of message
+        {
+            message[message_index] = '\0';
+            ft_printf("Received message: %s\n", message);
+            message_index = 0; // Reset for next message
+        }
+        else
+        {
+            message[message_index++] = c;
+        }
+        bit = 0;
+        c = 0;
+    }
+} */
 
 int main(int argc, char **argv)
 {

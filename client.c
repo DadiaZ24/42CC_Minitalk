@@ -34,7 +34,9 @@ int main(int argc, char **argv)
     int     i;
     char    *msg;
 
-    if (argc != 3)
+    msg = ft_minijoin(msg, 'D');
+    printf("%s", msg);
+    /*if (argc != 3)
         return (ft_printf("ERROR: Wrong usage of the program. Use './client [PID] [Message]\n"));
     i = -1;
     msg = "\033[1;32mCLIENT MESSAGE: \033[0m";
@@ -45,5 +47,5 @@ int main(int argc, char **argv)
     while (argv[2][++i])
         send_to_server(pid, argv[2][i]);
     send_to_server(pid, '\n');
-    return (0);
+    return (0); */
 }
