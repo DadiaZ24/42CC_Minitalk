@@ -12,19 +12,39 @@
 
 #include "libft/libft.h"
 
-void send_to_server(int pid, char str)
+int dynamic_sleep(int n)
+{
+    if (n <= 100)
+        return (10);
+    else if (n < 10000)
+        return (100);
+    else if (n < 100000)
+        return (200);
+    else
+        return (500);
+}
+
+void send_to_server(int pid, char *str)
 {
     int bit;
+    int i;
+    int strsize;
 
-    bit = 0;
-    while (bit < 8)
+    i = 0;
+    strsize = ft_strlen(str);
+    while (i <= strsize)
     {
-        if (((str >> bit) & 1) == 1)
-            kill (pid, SIGUSR1);
-        else
-            kill (pid, SIGUSR2);
-        usleep(100);
-        bit++;
+        bit = 0;
+        while (bit < 8)
+        {
+            if (((str[i] >> bit) & 1) == 1)
+                kill (pid, SIGUSR1);
+            else
+                kill (pid, SIGUSR2);
+            usleep(dynamic_sleep(strsize));
+            bit++;
+        }
+        i++;
     }
 }
 
@@ -36,17 +56,13 @@ int main(int argc, char **argv)
 
     msg = NULL;
     msg = ft_minijoin(msg, 'D');
-    printf("%s", msg);
-    /*if (argc != 3)
+    if (argc != 3)
         return (ft_printf("ERROR: Wrong usage of the program. Use './client [PID] [Message]\n"));
     i = -1;
     msg = "\033[1;32mCLIENT MESSAGE: \033[0m";
     pid = ft_atoi(argv[1]);
-    while (msg[++i])
-        send_to_server(pid, msg[i]);
-    i = -1;
-    while (argv[2][++i])
-        send_to_server(pid, argv[2][i]);
-    send_to_server(pid, '\n');
-    return (0); */
+    send_to_server(pid, msg);
+    send_to_server(pid, argv[2]);
+    send_to_server(pid, "\n");
+    return (0);
 }

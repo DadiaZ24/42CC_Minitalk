@@ -12,27 +12,25 @@
 
 #include "libft.h"
 
-char	*ft_minijoin(char *str, char c)
+char	*ft_minijoin(char *s1, char c)
 {
 	char	*newstring;
 	int		i;
 	int		size;
 
-	if (!str)
-    {
-        str = malloc(sizeof(char));
-        str[0] = '\0';
-    }
-	size = ft_strlen(str) + 1;
+	if (!s1)
+	{
+		s1 = malloc(sizeof(char));
+		s1[0] = '\0';
+	}
+	size = ft_strlen(s1) + 1;
 	newstring = (char *)malloc(sizeof(char) * (size + 1));
 	if (!newstring)
 		return (0);
 	i = -1;
-	while (str[i])
-		newstring[i] = str[i];
-	newstring[++i] = c;
+	while (++i < size - 1)
+		newstring[i] = s1[i];
+	newstring[i] = c;
 	newstring[++i] = '\0';
-	if (str)
-    	free(str);
 	return (newstring);
 }
