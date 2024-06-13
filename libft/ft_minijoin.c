@@ -32,5 +32,7 @@ char	*ft_minijoin(char *s1, char c)
 		newstring[i] = s1[i];
 	newstring[i] = c;
 	newstring[++i] = '\0';
+	if (s1)
+		free(s1);
 	return (newstring);
 }
