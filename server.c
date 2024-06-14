@@ -51,7 +51,7 @@ int	main(int argc, char **argv)
 		return (ft_printf("%s", error));
 	free(error);
 	welcome_message();
-	ft_printf("Waiting for client interaction...\n\033[1;32m");
+	ft_printf("Waiting for client interaction...\n\n");
 	while (1)
 	{
 		signal(SIGUSR1, receive_message);
