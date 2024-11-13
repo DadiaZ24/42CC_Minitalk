@@ -2,7 +2,7 @@
 
 A simple messaging program in C for the 42 School curriculum, using UNIX signals to facilitate client-server communication.
 
-![](https://imgur.com/zRR1ufC](https://imgur.com/QFN3qv9](https://github.com/DadiaZ24/42CC_Minitalk/blob/main/preview.gif?raw=true)
+![](https://github.com/DadiaZ24/42CC_Minitalk/blob/main/preview.gif?raw=true)
 
 ## 📄 Project Overview
 
