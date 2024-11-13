@@ -1,6 +1,8 @@
-## 🗣️ Minitalk
+# 🗣️ Minitalk
 
 A simple messaging program in C for the 42 School curriculum, using UNIX signals to facilitate client-server communication.
+
+![](https://imgur.com/zRR1ufC)
 
 ## 📄 Project Overview
 
